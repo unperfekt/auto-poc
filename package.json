@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "auto-poc-monorepo",
+  "private": true,
+  "author": "Martin Broder <hello@martinbroder.com>",
+  "repository": "https://github.com/unperfekt/auto-poc",
+  "license": "MIT",
+  "scripts": {
+    "release": "auto shipit"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@auto-it/conventional-commits": "^10.32.6",
+    "@auto-it/npm": "^10.32.6",
+    "@auto-it/released": "^10.32.6",
+    "auto": "^10.32.6",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
+    "lerna": "^4.0.0"
+  }
+}
