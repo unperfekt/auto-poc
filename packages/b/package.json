@@ -1,0 +1,7 @@
+{
+  "version": "0.0.0",
+  "name": "@anyplace/test-package-auto-poc-b",
+  "description": "trigger release",
+  "author": "Martin Broder <hello@martinbroder.com>",
+  "repository": "https://github.com/unperfekt/auto-poc"
+}

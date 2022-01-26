@@ -1,0 +1,32 @@
+name: Release
+
+on: [push]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # - name: Prepare repository
+      #   run: git fetch --unshallow --tags
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+
+      - name: Create Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TEST_TOKEN }}
+        run: |
+          echo "@anyplace:registry=https://registry.anyplace.com" > ~/.npmrc
+          echo "//registry.anyplace.com/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+          yarn release
