@@ -1,1 +1,1 @@
-# auto-lerna-gh-actions
+# auto-poc
